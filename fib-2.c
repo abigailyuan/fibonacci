@@ -3,8 +3,8 @@
 
 #define N 2
 
-double (*fib(double (*M)[N], double n))[N];
-double (*sqm(double (*A)[N], double (*B)[N]))[N];
+double (*fib(double (M[])[N], double n))[N];
+double (*sqm(double (A[])[N], double (B[])[N]))[N];
 double M[N][N]={{1,1},{1,0}}, Z[N][N]={{0,0},{0,0}};
 
 int main(int argc, char *argv[]) {
