@@ -51,6 +51,6 @@ double fib(int n) {
         return 1;
     } else {
         rec(F, n-1);
+        return F[0][0];
     }
-    return F[0][0];
 }
