@@ -29,15 +29,15 @@ void multiply(double A[2][2], double B[2][2]) {
     A[1][1] = w;
 }
 
-void power(double F[2][2], int n) {
+void rec(double F[2][2], int n) {
     double M[2][2] = {{1,1},{1,0}}, I[2][2] = {{1,0},{0,1}};
     if (n==1) {
         multiply(F, I);
     } else if (n%2==0) {
-        power(F, n/2);
+        rec(F, n/2);
         multiply(F, F);
     } else {
-        power(F, (n-1)/2);
+        rec(F, (n-1)/2);
         multiply(F, F);
         multiply(F, M);
     }
