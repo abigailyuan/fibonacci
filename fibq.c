@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 void multiply(double A[2][2], double B[2][2]);
-void power(double F[2][2], int n);
+void rec(double F[2][2], int n);
 double fib(int n);
 
 int main(int argc, const char *argv[]) {
@@ -50,7 +50,7 @@ double fib(int n) {
     } else if (n==1||n==2) {
         return 1;
     } else {
-        power(F, n-1);
+        rec(F, n-1);
     }
     return F[0][0];
 }
