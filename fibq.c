@@ -1,3 +1,5 @@
+/* Fibonacci Q-Matrix */
+
 #include <stdio.h>
 #include <stdlib.h>
 
