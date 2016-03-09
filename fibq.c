@@ -1,34 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
-void multiply(double F[2][2], double M[2][2]);
+void multiply(double A[2][2], double B[2][2]);
 void power(double F[2][2], int n);
 double fib(int n);
 
 int main(int argc, const char *argv[]) {
 	int n;
-	clock_t start;
 	if (argc < 2) {
 		printf("Insufficient arguments!\n");
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(argv[1]);
-	start = clock();
 	printf("The %dth Fibonacci number is %.0f\n", n, fib(n));
-	printf("Took %d cycles\n", (int)(clock()-start));
 	return 0;
 }
 
-void multiply(double F[2][2], double M[2][2]) {
-	double x = F[0][0]*M[0][0] + F[0][1]*M[1][0];
-	double y = F[0][0]*M[0][1] + F[0][1]*M[1][1];
-	double z = F[1][0]*M[0][0] + F[1][1]*M[1][0];
-	double w = F[1][0]*M[0][1] + F[1][1]*M[1][1];
-	F[0][0] = x;
-	F[0][1] = y;
-	F[1][0] = z;
-	F[1][1] = w;
+void multiply(double A[2][2], double B[2][2]) {
+	double x = A[0][0]*B[0][0] + A[0][1]*B[1][0];
+	double y = A[0][0]*B[0][1] + A[0][1]*B[1][1];
+	double z = A[1][0]*B[0][0] + A[1][1]*B[1][0];
+	double w = A[1][0]*B[0][1] + A[1][1]*B[1][1];
+	A[0][0] = x;
+	A[0][1] = y;
+	A[1][0] = z;
+	A[1][1] = w;
 }
 
 void power(double F[2][2], int n) {
