@@ -1,5 +1,6 @@
 /* Fibonacci Q-Matrix */
-
+/* {f(n), f(n-1), f(n-1), f(n-2)} ={1, 1, 1,0}^(n-1) */
+/* we need F[0][0] in this function */
 #include <iostream>
 using namespace std;
 
@@ -18,7 +19,7 @@ int main(int argc, const char *argv[]) {
     cout << fixed << fibonacci(n) << endl;
     return 0;
 }
-
+/* a matrix multiplication */
 void multiply(double A[2][2], double B[2][2]) {
     double x = A[0][0]*B[0][0] + A[0][1]*B[1][0];
     double y = A[0][0]*B[0][1] + A[0][1]*B[1][1];
@@ -31,9 +32,10 @@ void multiply(double A[2][2], double B[2][2]) {
 }
 
 void recursion(double F[2][2], int n) {
-    double M[2][2] = {{1,1},{1,0}}, I[2][2] = {{1,0},{0,1}};
+    double M[2][2] = {{1,1},{1,0}}, I[2][2] = {{1,0},{0,1}};//I is identity matrix
     if (n == 1) {
         multiply(F, I);
+        /* when n is a multiply of 2, rec for n/2 and then merge */
     } else if (n%2 == 0) {
         recursion(F, n/2);
         multiply(F, F);
